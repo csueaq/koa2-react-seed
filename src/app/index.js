@@ -7,7 +7,7 @@ import createStore from '../store/store'
 import { BrowserRouter } from 'react-router-dom'
 import domready from 'domready'
 import {createBrowserHistory} from 'history'
-import App from '../view/components/app'
+import App from '../components/app'
 const store = createStore();
 
 domready(function() {

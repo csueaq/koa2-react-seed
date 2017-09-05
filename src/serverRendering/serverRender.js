@@ -3,7 +3,7 @@
  */
 import { createMemoryHistory } from 'history'
 import { StaticRouter } from 'react-router'
-import App from '../view/components/app'
+import App from '../components/app'
 import ReactDOMServer from 'react-dom/server'
 import React from 'react'
 
