@@ -1,7 +1,7 @@
 /**
  * Created by x.jin on 21/06/2017.
  */
-import {getContent} from '../util/api'
+import {getContent} from '../../util/api'
 import { actions } from './actions'
 
 

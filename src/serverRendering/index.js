@@ -1,4 +1,4 @@
-export function renderFullPage() {
+export function renderFullPage(html,initialState) {
     return `
     <!doctype html>
     <html>
@@ -8,10 +8,12 @@ export function renderFullPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </head>
       <body>
-        <div id="content"></div>
-        
+        <div id="content">${html}</div>
+        <script>
+          window.__INITIAL_STATE__ = "${encodeURIComponent(JSON.stringify(initialState))}";
+        </script>  
         <script type="text/javascript" src="/js/bundle.js"></script>
-                  
+        
       </body>
     </html>
     `;

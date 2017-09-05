@@ -13,13 +13,11 @@ let initialState ={
 export default function (state = initialState, action={}) {
     switch (action.type) {
         case actions.getContent.request:
-            return {state, ...{loading : true}}
-
+            return {...state, ...{loading : true}}
         case actions.getContent.failure:
-            return {state, ...{loading : false, error: true}}
+            return {...state, ...{loading : false, error: true}}
         case actions.getContent.success:
-            console.log(action.result)
-            return {state, ...{ content : action.result, loading : false} }
+            return {...state, ...{ content : action.result, loading : false} }
 
         default:
             return state

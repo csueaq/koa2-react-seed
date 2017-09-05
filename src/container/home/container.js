@@ -3,8 +3,8 @@
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Banner from '../view/components/banner'
-import Loader from '../view/components/loader'
+import Banner from '../../view/components/banner'
+import Loader from '../../view/components/loader'
 import * as actions from './actionCreator'
 class Home extends Component {
 
