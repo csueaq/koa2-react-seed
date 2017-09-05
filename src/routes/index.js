@@ -4,25 +4,10 @@
 import Router from 'koa-router';
 const indexRouter = new Router();
 import { renderFullPage } from '../serverRendering/index'
-import request from 'superagent'
 import createStore from '../store/store'
 import { getContentAction } from '../container/home/actionCreator'
 import { renderWithData } from '../serverRendering/serverRender'
-indexRouter.get('/api/test', function (ctx, next) {
 
-    let a = 1
-    let b = {c: 1, d: 1}
-    ctx.body={ a, ...b }
-})
-
-indexRouter.get('/api/test2', async function (ctx, next) {
-
-    const response = await request.get('https://google.com')
-
-    console.log(response)
-
-    ctx.body=JSON.stringify(response)
-})
 
 indexRouter.get('/about', async function (ctx, next) {
 
