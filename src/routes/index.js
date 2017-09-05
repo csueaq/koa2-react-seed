@@ -36,7 +36,7 @@ indexRouter.get('/about', async function (ctx, next) {
 indexRouter.get('*', function (ctx, next) {
 
 
-    ctx.body=renderFullPage();
+    ctx.body=renderFullPage("");
 })
 
 
