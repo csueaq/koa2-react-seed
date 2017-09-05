@@ -6,10 +6,11 @@ import React from 'react'
 import {render} from 'react-dom'
 import createStore from './store/store'
 import { Provider } from 'react-redux'
-import routes from './view/routes.jsx'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from './view/routes'
 import domready from 'domready'
 import {createBrowserHistory} from 'history'
-import { ConnectedRouter, push } from 'react-router-redux'
+import { ConnectedRouter } from 'react-router-redux'
 
 const store = createStore();
 
@@ -18,7 +19,9 @@ domready(function() {
     render(
         <Provider store={store}>
             <ConnectedRouter history={createBrowserHistory()} >
-                {routes}
+                <BrowserRouter>
+                    <Routes />
+                </BrowserRouter>
             </ConnectedRouter>
         </Provider>,
         document.getElementById("content")
