@@ -3,7 +3,7 @@
  */
 
 import { createStore, applyMiddleware,combineReducers, compose } from 'redux'
-import promiseMiddleware from '../../../../../poc-nap/middleware/promise-middleware'
+import promiseMiddleware from '../../../app/js/middleware/promise-middleware'
 import homeReducer from '../home/reducer'
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
