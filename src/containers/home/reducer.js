@@ -17,7 +17,7 @@ export default function (state = initialState, action={}) {
         case actions.getContent.failure:
             return {...state, ...{loading : false, error: true}}
         case actions.getContent.success:
-            return {...state, ...{ content : action.result, loading : false} }
+            return {...state, ...{ content : action.data, loading : false} }
 
         default:
             return state

@@ -5,7 +5,7 @@ import Router from 'koa-router';
 const indexRouter = new Router();
 import { renderFullPage } from '../serverRendering/index'
 import createStore from '../store/store'
-import { getContentAction } from '../containers/home/actionCreator'
+import { fetchData } from '../containers/home/actionCreator'
 import { renderWithData } from '../serverRendering/serverRender'
 
 
@@ -13,7 +13,7 @@ indexRouter.get('/about', async function (ctx) {
 
     let store = createStore();
 
-    await store.dispatch(getContentAction())
+    await store.dispatch(fetchData())
 
     ctx.body=renderFullPage(renderWithData(ctx, store), store.getState())
 })

@@ -34,7 +34,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        getContent: () => dispatch(actions.getContentAction())
+        getContent: () => dispatch(actions.fetchData())
     }
 }
 

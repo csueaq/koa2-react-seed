@@ -3,10 +3,11 @@
  */
 
 import { createStore, applyMiddleware,combineReducers, compose } from 'redux'
-import promiseMiddleware from '../middlewares/promise-middleware'
 import homeReducer from '../containers/home/reducer'
 import { routerReducer } from 'react-router-redux'
 import { isBrowser } from '../util/utils'
+import thunk from 'redux-thunk'
+
 export default function () {
 
     const reducers = combineReducers({
@@ -21,7 +22,7 @@ export default function () {
         initialState = JSON.parse(decodeURIComponent(window.__INITIAL_STATE__))
     }
     const finalCreateStore = compose(
-        applyMiddleware(promiseMiddleware),
+        applyMiddleware(thunk),
         isBrowser() && window.devToolsExtension ? window.devToolsExtension() : f => f
     )(createStore)
 
