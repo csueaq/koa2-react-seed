@@ -17,6 +17,7 @@ class Home extends Component {
 
     render() {
 
+        console.log("view", this.props.router.location.pathname)
         let { content, loading } = this.props.home;
 
         return loading ? <Loader/> : <Banner content={content} />

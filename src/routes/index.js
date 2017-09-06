@@ -9,17 +9,30 @@ import { getContentAction } from '../containers/home/actionCreator'
 import { renderWithData } from '../serverRendering/serverRender'
 
 
-indexRouter.get('/about', async function (ctx, next) {
+indexRouter.get('/about', async function (ctx) {
+
+    console.log('1')
+    let store = createStore();
+
+    await store.dispatch(getContentAction())
+
+    ctx.body=renderFullPage(renderWithData(store, ctx), store.getState())
+})
+
+indexRouter.get('/private', async function (ctx) {
+
+    console.log('2')
 
     let store = createStore();
 
     await store.dispatch(getContentAction())
 
-    ctx.body=renderFullPage(renderWithData(store, ctx.url), store.getState())
+    ctx.body=renderFullPage(renderWithData(store, ctx), store.getState())
 })
 
-indexRouter.get('*', function (ctx, next) {
+indexRouter.get('*', function (ctx) {
 
+    console.log('3')
 
     ctx.body=renderFullPage("");
 })

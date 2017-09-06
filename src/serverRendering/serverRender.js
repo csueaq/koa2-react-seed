@@ -8,14 +8,23 @@ import ReactDOMServer from 'react-dom/server'
 import React from 'react'
 
 
-export function renderWithData(store, location) {
+export function renderWithData(store, ctx) {
 
-    return ReactDOMServer.renderToStaticMarkup(
+    const context = {}
+    const history = createMemoryHistory()
+    history.location = { ...history.location , ...{ pathname: ctx.url }}
+    const html =  ReactDOMServer.renderToStaticMarkup(
         <StaticRouter
-            location={location}
-            context={{}}
+            location={ctx.url}
+            context={context}
         >
-            <App store={store} history={createMemoryHistory()} />
+            <App store={store} history={history} />
         </StaticRouter>
     );
+    console.log(context)
+    if (context.url) {
+        ctx.redirect(context.url)
+    } else {
+        return html
+    }
 }
