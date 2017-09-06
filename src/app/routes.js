@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import Home from '../container/home/container'
+import Home from '../containers/home/container'
 
 
 export default () =>

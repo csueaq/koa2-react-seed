@@ -5,7 +5,7 @@ import Router from 'koa-router';
 const indexRouter = new Router();
 import { renderFullPage } from '../serverRendering/index'
 import createStore from '../store/store'
-import { getContentAction } from '../container/home/actionCreator'
+import { getContentAction } from '../containers/home/actionCreator'
 import { renderWithData } from '../serverRendering/serverRender'
 
 
@@ -26,5 +26,5 @@ indexRouter.get('*', function (ctx, next) {
 
 
 
-module.exports = indexRouter
+export { indexRouter }
 

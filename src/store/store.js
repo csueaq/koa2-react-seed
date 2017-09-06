@@ -3,8 +3,8 @@
  */
 
 import { createStore, applyMiddleware,combineReducers, compose } from 'redux'
-import promiseMiddleware from '../middleware/promise-middleware'
-import homeReducer from '../container/home/reducer'
+import promiseMiddleware from '../middlewares/promise-middleware'
+import homeReducer from '../containers/home/reducer'
 import { routerReducer } from 'react-router-redux'
 import { isBrowser } from '../util/utils'
 export default function () {
