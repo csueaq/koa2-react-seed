@@ -1,17 +1,18 @@
 /**
  * Created by x.jin on 21/06/2017.
  */
-import request from 'superagent'
+import 'isomorphic-fetch';
 
-export function getContent(resolve,reject) {
-    request
-        .get('https://www.foaas.com/awesome/xin')
-        .end(function(err,res) {
-            if(err) {
-                reject();
+export function getContent() {
+    return fetch('https://www.foaas.com/awesome/xin').then(
+        (response)=>{
+
+            if (response.status >= 400) {
+                throw new Error("Bad response from server");
             }
-            else {
-                resolve(res.text)
-            }
-        });
+            return response.text()
+        }
+    )
+
+
 }
