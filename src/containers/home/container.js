@@ -10,9 +10,9 @@ class Home extends Component {
 
     componentDidMount() {
 
-        let { content } = this.props.home;
+        let { home : { content }, getContent } = this.props;
 
-        !content && this.props.dispatch(actions.getContentAction())
+        !content && getContent()
     }
 
     render() {
@@ -32,4 +32,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Home)
+function mapDispatchToProps (dispatch) {
+    return {
+        getContent: () => dispatch(actions.getContentAction())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
