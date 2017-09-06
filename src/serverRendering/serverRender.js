@@ -8,7 +8,7 @@ import ReactDOMServer from 'react-dom/server'
 import React from 'react'
 
 
-export function renderWithData(store, ctx) {
+export function renderWithData(ctx, store) {
 
     const context = {}
     const history = createMemoryHistory()

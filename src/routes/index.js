@@ -11,30 +11,20 @@ import { renderWithData } from '../serverRendering/serverRender'
 
 indexRouter.get('/about', async function (ctx) {
 
-    console.log('1')
     let store = createStore();
 
     await store.dispatch(getContentAction())
 
-    ctx.body=renderFullPage(renderWithData(store, ctx), store.getState())
+    ctx.body=renderFullPage(renderWithData(ctx, store), store.getState())
 })
 
-indexRouter.get('/private', async function (ctx) {
 
-    console.log('2')
-
-    let store = createStore();
-
-    //await store.dispatch(getContentAction())
-
-    ctx.body=renderFullPage(renderWithData(store, ctx), store.getState())
-})
 
 indexRouter.get('*', function (ctx) {
+    let store = createStore();
 
-    console.log('3')
 
-    ctx.body=renderFullPage("");
+    ctx.body=renderFullPage(renderWithData(ctx, store))
 })
 
 
