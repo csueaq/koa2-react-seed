@@ -25,7 +25,7 @@ indexRouter.get('/private', async function (ctx) {
 
     let store = createStore();
 
-    await store.dispatch(getContentAction())
+    //await store.dispatch(getContentAction())
 
     ctx.body=renderFullPage(renderWithData(store, ctx), store.getState())
 })

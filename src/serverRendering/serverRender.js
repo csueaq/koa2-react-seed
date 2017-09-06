@@ -23,6 +23,7 @@ export function renderWithData(store, ctx) {
     );
     console.log(context)
     if (context.url) {
+        context.status && (ctx.status = context.status)
         ctx.redirect(context.url)
     } else {
         return html

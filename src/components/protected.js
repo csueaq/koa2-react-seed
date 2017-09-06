@@ -5,18 +5,25 @@
 import React from 'react'
 import {
     Route,
-    Redirect,
 } from 'react-router-dom'
-
+import RedirectWithStatus from './redirectWithStatus'
 
 let auth = false
 export default ({ component: Component, ...rest }) => {
-    console.log('redirect');
-    return <Route {...rest} render={props => (
+    return <Route {...rest} render={ props => (
         auth ? (
             <Component {...props}/>
         ) : (
-            <Redirect to='/about' />
+            <RedirectWithStatus
+                status={301}
+                from="/private"
+                to="/about"
+            />
         )
     )}/>
 }
+
+
+
+
+

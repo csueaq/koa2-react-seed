@@ -3,7 +3,7 @@
  */
 import { Provider } from 'react-redux'
 import React from 'react'
-import Routes from '../app/routes'
+import Routes from './routes'
 import { ConnectedRouter } from 'react-router-redux'
 
 

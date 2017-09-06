@@ -2,8 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Home from '../containers/home/container'
-import Protected from '../components/protected'
-import Loader from '../components/loader'
+import Protected from './protected'
 
 
 export default () =>
