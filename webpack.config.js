@@ -15,15 +15,6 @@ module.exports = {
                     'transform-object-rest-spread'
 
                 ],
-            },},
-            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/,options: {
-                'presets': [
-                    'react'
-                ],
-                'plugins': [
-                    'transform-object-rest-spread'
-
-                ],
             },}
         ],
 
